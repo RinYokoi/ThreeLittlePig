@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Childrend audio book</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Pacifico|Satisfy|Stoke|Yellowtail|Geo|Oswald|Lobster" rel="stylesheet" type="text/css" />
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <style>
+        body {
+            margin: 0; /* ページの外側の余白を削除 */
+        }
+        .page {
+            display: none;
+            height: 100vh; /* ページ全体の高さを画面の高さと同じにする */
+        }
+        .current-page {
+            display: block;
+        }
+        #recordButton {
+            font-size: 18px;
+            padding: 15px 30px;
+            background-color: #3399ff; /* ブルー */
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        #recordButton:hover {
+            background-color: #2672cb; /* ダークブルー */
+        }
+    </style>
+</head>
+
+<header>
+  <h1>Childrens book </h1>
+</header>
+
+<body>
+    <div id="book-container">
+        <div id="page1" class="page current-page">
+            <h2>Page 1</h2>
+            <img src="img/page01.jpg" alt="Page 1 Image">
+            <p>Text for Page 1</p>
+            <button class="nextButton" data-next-page="page2">Next</button>
+        </div>
+        <div id="page2" class="page">
+            <h2>Page 2</h2>
+            <img src="img/page02.jpg" alt="Page 2 Image">
+            <p>i will huff and puff and blow your house down</p>
+             <button class="nextButton" data-next-page="page3">Next</button>
+        </div>
+        <div id="page3" class="page">
+            <h2>Page 3</h2>
+            <img src="img/page03.jpg" alt="Page 3 Image">
+            <p>Text for Page 3</p>
+            <button class="nextButton" data-next-page="page4">Next</button>
+        </div>
+        <div id="page4" class="page">
+            <h2>Page 4</h2>
+            <img src="img/page04.jpg" alt="Page 4 Image">
+            <p>i will huff and puff and blow your house down</p>
+             <button class="nextButton" data-next-page="page5">Next</button>
+        </div>
+         <div id="page5" class="page">
+            <h2>Page 5</h2>
+            <img src="img/page05.jpg" alt="Page 5 Image">
+            <p>Text for Page 5</p>
+            <button class="nextButton" data-next-page="page6">Next</button>
+        </div>
+        <div id="page6" class="page">
+            <h2>Page 6</h2>
+            <img src="img/page06.jpg" alt="Page 6 Image">
+            <p>Text for page 6</p>
+             <button class="nextButton" data-next-page="page7">Next</button>
+        </div>
+        <div id="page7" class="page">
+            <h2>Page 7</h2>
+            <img src="img/page07.jpg" alt="Page 7 Image">
+            <p>Text for Page 3</p>
+            <button class="nextButton" data-next-page="page8">Next</button>
+        </div>
+        <div id="page8" class="page">
+            <h2>Page 8</h2>
+            <img src="img/page08.jpg" alt="Page 8 Image">
+            <p>then i will huff and i will puff and i will blow your house down</p>
+             <button id="recordButton" onclick="startRecording()">Record</button>
+        </div>
+         <div id="page9" class="page">
+            <h2>Page 9</h2>
+            <img src="img/page09.jpg" alt="Page 9 Image">
+            <p>Text for Page 1</p>
+            <button class="nextButton" data-next-page="page10">Next</button>
+        </div>
+        <div id="page10" class="page">
+            <h2>Page 10</h2>
+            <img src="img/page10.jpg" alt="Page 10 Image">
+            <p>i will huff and puff and blow your house down</p>
+             <button class="nextButton" data-next-page="page11">Next</button>
+        </div>
+        <div id="page11" class="page">
+            <h2>Page 11</h2>
+            <img src="img/page11.jpg" alt="Page 11 Image">
+            <p>Text for Page 3</p>
+            <button class="nextButton" data-next-page="page12">Next</button>
+        </div>
+        <div id="page12" class="page">
+            <h2>Page 12</h2>
+            <img src="img/page12.jpg" alt="Page 12 Image">
+            <p>i will huff and puff and blow your house down</p>
+             <button class="nextButton" data-next-page="page13">Next</button>
+        </div>
+         <div id="page13" class="page">
+            <h2>Page 13</h2>
+            <img src="img/page13.jpg" alt="Page 13 Image">
+            <p>then i will huff and i will puff and i will blow your house down</p>
+              <button id="recordButton" onclick="startRecording()">Record</button>
+        </div>
+        <div id="page14" class="page">
+            <h2>Page 14</h2>
+            <img src="img/page14.jpg" alt="Page 14 Image">
+            <p>i will huff and puff and blow your house down</p>
+             <button class="nextButton" data-next-page="page15">Next</button>
+        </div>
+        <div id="page15" class="page">
+            <h2>Page 15</h2>
+            <img src="img/page15.jpg" alt="Page 15 Image">
+            <p>Text for Page 3</p>
+            <button class="nextButton" data-next-page="page16">Next</button>
+        </div>
+        <div id="page16" class="page">
+            <h2>Page 16</h2>
+            <img src="img/page16.jpg" alt="Page 4 Image">
+            <p>i will huff and puff and blow your house down</p>
+             <button class="nextButton" data-next-page="page17">Next</button>
+        </div>
+         <div id="page17" class="page">
+            <h2>Page 17</h2>
+            <img src="img/page17.jpg" alt="Page 17 Image">
+            <p>Text for Page 1</p>
+            <button class="nextButton" data-next-page="page18">Next</button>
+        </div>
+        <div id="page18" class="page">
+            <h2>Page 18</h2>
+            <img src="img/page18.jpg" alt="Page 18 Image">
+            <p>i will huff and puff and blow your house down</p>
+             <button class="nextButton" data-next-page="page19">Next</button>
+        </div>
+        <div id="page19" class="page">
+            <h2>Page 19</h2>
+            <img src="img/page19.jpg" alt="Page 19 Image">
+            <p>Text for Page 19</p>
+            <button class="nextButton" data-next-page="page20">Next</button>
+        </div>
+        <div id="page20" class="page">
+            <h2>Page 20</h2>
+            <img src="img/page20.jpg" alt="Page 20 Image">
+            <p>i will huff and puff and blow your house down</p>
+             <button class="nextButton" data-next-page="page21">Next</button>
+        </div>
+        <div id="page21" class="page">
+            <h2>Page 21</h2>
+            <img src="img/page04.jpg" alt="Page 21 Image">
+            <p>i will huff and puff and blow your house down</p>
+             <button class="nextButton" data-next-page="page22">Next</button>
+        </div>
+        <div id="page22" class="page">
+            <h2>Page 22</h2>
+            <img src="img/page22.jpg" alt="Page 22 Image">
+            <p>i will huff and puff and blow your house down</p>
+        </div>
+    </div>
+
+    <<script>
+        let currentPage = 1;
+        const totalPages = 22;
+        let recognition;
+
+        document.querySelectorAll('.nextButton').forEach(button => {
+            button.addEventListener('click', nextPage);
+        });
+
+        function startRecording() {
+            if (!recognition) {
+                recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                recognition.lang = 'en-US';
+
+                recognition.onresult = (event) => {
+                    const result = event.results[0][0].transcript.toLowerCase();
+                    console.log('Recognized:', result);
+
+                    if (result.includes('then i will huff and puff and blow your house down')) {
+                        nextPage();
+                    }
+                };
+
+                recognition.onerror = (event) => {
+                    console.error('Speech recognition error:', event.error);
+                };
+            }
+
+            recognition.start();
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                window.scrollTo(0, 1920);
+                document.getElementById(`page${currentPage}`).classList.remove('current-page');
+                currentPage++;
+                document.getElementById(`page${currentPage}`).classList.add('current-page');
+            } else if (currentPage === totalPages) {
+                alert('絵本を読み終えました！');
+            }
+
+            if (currentPage === 8 || currentPage === 13) {
+                startRecording();
+            }
+        }
+    </script>
+</body>
+</body>
+</html>
